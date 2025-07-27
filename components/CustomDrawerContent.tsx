@@ -42,7 +42,7 @@ export default function CustomDrawerContent(props: any) {
           label="Talk to a rep"
           labelStyle={styles.label}
           icon={() => <Feather name="message-circle" size={22} color={colors.primary} />}
-          onPress={() => props.navigation.navigate('support)}
+          onPress={() => props.navigation.navigate('support')}
         />
         <DrawerItem
           label="FAQs"
