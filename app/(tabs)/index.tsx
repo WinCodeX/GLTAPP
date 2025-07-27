@@ -17,7 +17,7 @@ export default function HomeScreen() {
 
   const handleFabPress = () => {
     console.log('FAB pressed');
-    // you can trigger navigation here
+    // You can trigger navigation here later
   };
 
   return (
@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    paddingTop: 10, // Ensure space for the status bar (notification bar)
   },
   titleBox: {
     flexDirection: 'row',
@@ -87,6 +88,8 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     padding: 16,
+    justifyContent: 'center', // Centering content vertically
+    alignItems: 'center', // Centering content horizontally
   },
   welcome: {
     color: colors.primary,
@@ -96,7 +99,7 @@ const styles = StyleSheet.create({
   fab: {
     position: 'absolute',
     right: 20,
-    bottom: 120, // same bottom offset as dashboard
+    bottom: 30, // Adjust bottom spacing so it's not overlapping the content
     backgroundColor: colors.primary,
     borderRadius: 28,
     height: 56,
