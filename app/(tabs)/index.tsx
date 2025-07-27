@@ -1,75 +1,112 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { Feather, Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import React from 'react';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import { FAB } from 'react-native-paper';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import colors from '../../theme/colors'; // Same color file from your dashboard
 
 export default function HomeScreen() {
+  const navigation = useNavigation();
+
+  const handleFabPress = () => {
+    console.log('FAB pressed');
+    // you can trigger navigation here
+  };
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <SafeAreaView style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <TouchableOpacity onPress={() => navigation.openDrawer()}>
+          <Ionicons name="menu" size={28} color="white" />
+        </TouchableOpacity>
+
+        <View style={styles.titleBox}>
+          <Text style={styles.titleMain}>GLT </Text>
+          <Text style={styles.titleSub}>logistics</Text>
+        </View>
+
+        <TouchableOpacity onPress={() => console.log('Search tapped')}>
+          <Feather name="search" size={24} color="white" />
+        </TouchableOpacity>
+      </View>
+
+      {/* Body */}
+      <View style={styles.content}>
+        <Text style={styles.welcome}>Welcome to GLT Logistics</Text>
+        {/* Add cost calculator, packages, etc. here later */}
+      </View>
+
+      {/* FAB */}
+      <FAB
+        icon="plus"
+        style={styles.fab}
+        onPress={handleFabPress}
+        color="white"
+      />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
+  container: {
+    flex: 1,
+    backgroundColor: colors.background, // dark theme
+  },
+  header: {
+    height: 60,
+    paddingHorizontal: 16,
+    backgroundColor: colors.background,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    justifyContent: 'space-between',
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  titleBox: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
+  titleMain: {
+    fontSize: 22,
+    color: 'white',
+    fontWeight: 'bold',
+  },
+  titleSub: {
+    fontSize: 14,
+    color: 'white',
+    opacity: 0.7,
+    marginLeft: 4,
+    marginBottom: 2,
+  },
+  content: {
+    flex: 1,
+    padding: 16,
+  },
+  welcome: {
+    color: colors.primary,
+    fontSize: 20,
+    textAlign: 'center',
+  },
+  fab: {
     position: 'absolute',
+    right: 20,
+    bottom: 120, // same bottom offset as dashboard
+    backgroundColor: colors.primary,
+    borderRadius: 28,
+    height: 56,
+    width: 56,
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 6,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
   },
 });
