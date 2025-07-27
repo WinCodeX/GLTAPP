@@ -1,4 +1,3 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {
   SafeAreaView,
@@ -8,8 +7,8 @@ import {
 } from 'react-native';
 import { FAB } from 'react-native-paper';
 
-import GLTHeader from '../components/GLTHeader'; // ✅ your new header
-import colors from '../theme/colors'; // 🔁 dark theme colors
+import GLTHeader from '../../components/GLTHeader'; // ✅ your new header
+import colors from '../../theme/colors'; // 🔁 dark theme colors
 
 export default function HomeScreen() {
   const handleFabPress = () => {
