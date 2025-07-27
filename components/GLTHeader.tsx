@@ -5,7 +5,7 @@ import { Ionicons, Feather } from '@expo/vector-icons';
 export default function GLTHeader() {
   return (
     <View style={{
-      backgroundColor: '#1f2c34',
+      backgroundColor: '#37246D',
       paddingTop: 50,
       paddingBottom: 15,
       paddingHorizontal: 20,
