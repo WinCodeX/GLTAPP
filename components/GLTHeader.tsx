@@ -2,16 +2,20 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Feather } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, DrawerActions } from '@react-navigation/native';
 import colors from '../theme/colors';
 
 export default function GLTHeader() {
   const navigation = useNavigation();
 
+  const handleOpenDrawer = () => {
+    navigation.dispatch(DrawerActions.openDrawer());
+  };
+
   return (
     <View style={styles.container}>
       {/* Drawer toggle */}
-      <TouchableOpacity onPress={() => navigation.openDrawer()}>
+      <TouchableOpacity onPress={handleOpenDrawer}>
         <Feather name="menu" size={24} color="white" />
       </TouchableOpacity>
 
@@ -28,7 +32,7 @@ export default function GLTHeader() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.header, // previously '#37246D'
+    backgroundColor: colors.header, // Make sure colors.header exists in your color theme
     paddingTop: 50,
     paddingBottom: 15,
     paddingHorizontal: 20,
