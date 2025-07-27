@@ -30,37 +30,37 @@ export default function CustomDrawerContent(props: any) {
           label="Account"
           labelStyle={styles.label}
           icon={() => <Feather name="user" size={22} color={colors.primary} />}
-          onPress={() => props.navigation.navigate('Account')}
+          onPress={() => props.navigation.navigate('account')}
         />
         <DrawerItem
           label="Track a package"
           labelStyle={styles.label}
           icon={() => <Feather name="map-pin" size={22} color={colors.primary} />}
-          onPress={() => props.navigation.navigate('Track')}
+          onPress={() => props.navigation.navigate('track')}
         />
         <DrawerItem
           label="Talk to a rep"
           labelStyle={styles.label}
           icon={() => <Feather name="message-circle" size={22} color={colors.primary} />}
-          onPress={() => props.navigation.navigate('Support')}
+          onPress={() => props.navigation.navigate('support)}
         />
         <DrawerItem
           label="FAQs"
           labelStyle={styles.label}
           icon={() => <Feather name="help-circle" size={22} color={colors.primary} />}
-          onPress={() => props.navigation.navigate('FAQs')}
+          onPress={() => props.navigation.navigate('faqs')}
         />
         <DrawerItem
           label="History"
           labelStyle={styles.label}
           icon={() => <MaterialIcons name="history" size={22} color={colors.primary} />}
-          onPress={() => props.navigation.navigate('History')}
+          onPress={() => props.navigation.navigate('history')}
         />
         <DrawerItem
           label="Settings"
           labelStyle={styles.label}
           icon={() => <Ionicons name="settings-outline" size={22} color={colors.primary} />}
-          onPress={() => props.navigation.navigate('Settings')}
+          onPress={() => props.navigation.navigate('settings')}
         />
 
         {/* Alert Icon at Bottom */}
