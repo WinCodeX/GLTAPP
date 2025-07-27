@@ -1,5 +1,6 @@
 const colors = {
   primary: '#A259FF',           // Accent purple for buttons, FABs, etc.
+  header: '#37246D', // your current header shade
   background: '#1C0C3D',        // Deep purple for full background
   card: '#37246D',              // Lighter purple for headers/cards
   text: '#FFFFFF',              // Clean white text
