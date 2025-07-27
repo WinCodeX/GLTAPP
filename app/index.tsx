@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { FAB } from 'react-native-paper';
 
-import colors from '../../theme/colors'; // Same color file from your dashboard
+import colors from '../theme/colors'; // Same color file from your dashboard
 
 export default function HomeScreen() {
   const navigation = useNavigation();
